@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // const API_URL = 'http://desktop-t8fb5gv:4365/api/';
-const API_URL = 'http://3.133.119.157:5550/api/';
-export const IMG_URL = 'http://3.133.119.157:5550/';
+const API_URL = 'https://spotless-erin-zipper.cyclic.app/api';
+export const IMG_URL = 'https://spotless-erin-zipper.cyclic.app/';
 
 export const callAPi = axios.create({
   baseURL: API_URL,
