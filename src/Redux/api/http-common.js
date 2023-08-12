@@ -20,7 +20,7 @@ export const callAPiMultiPart = axios.create({
 
 callAPiMultiPart.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('whatssapp_bot_token');
+    const token = localStorage.getItem('realStateToken');
     if (token && token !== undefined) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -31,7 +31,7 @@ callAPiMultiPart.interceptors.request.use(
 
 callAPi.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('whatssapp_bot_token');
+    const token = localStorage.getItem('realStateToken');
     if (token && token !== undefined) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -40,14 +40,14 @@ callAPi.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-const token = localStorage.getItem('access_token');
+const token = localStorage.getItem('realStateToken');
 
 // eslint-disable-next-line consistent-return
 const getHeaders = () => {
   if (token !== undefined) {
     return {
       'Content-type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+      Authorization: `Bearer ${localStorage.getItem('realStateToken')}`,
     };
   }
 };

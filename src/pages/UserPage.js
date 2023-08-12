@@ -219,6 +219,7 @@ export default function UserPage() {
                       company,
                       avatarUrl,
                       isVerified,
+                      remainingAmount,
                     } = row;
                     const selectedUser = selected.indexOf(ownerName) !== -1;
 
@@ -248,18 +249,22 @@ export default function UserPage() {
                             <Button variant="contained" onClick={() => navigate('detail', { state: { data: row } })}>
                               Detail
                             </Button>
-                            <Button
-                              variant="contained"
-                              onClick={() => navigate('newinstallment', { state: { id: row._id } })}
-                            >
-                              Create Installment
-                            </Button>
-                            <Button
-                              variant="contained"
-                              onClick={() => navigate('installment_detail', { state: { id: row._id } })}
-                            >
-                              Installment Detail
-                            </Button>
+                            {remainingAmount >= 1 && (
+                              <>
+                                <Button
+                                  variant="contained"
+                                  onClick={() => navigate('newinstallment', { state: { id: row._id } })}
+                                >
+                                  Create Installment
+                                </Button>
+                                <Button
+                                  variant="contained"
+                                  onClick={() => navigate('installment_detail', { state: { id: row._id } })}
+                                >
+                                  Installment Detail
+                                </Button>
+                              </>
+                            )}
                           </Box>
                         </TableCell>
                       </TableRow>

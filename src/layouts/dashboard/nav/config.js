@@ -21,6 +21,11 @@ const navConfig = [
     path: '/dashboard/installment',
     icon: icon('ic_cart'),
   },
+  {
+    title: 'installment details',
+    path: '/dashboard/installment_details',
+    icon: icon('ic_cart'),
+  },
 ];
 
 export default navConfig;

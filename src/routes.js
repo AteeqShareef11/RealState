@@ -14,6 +14,7 @@ import NewInstallment from './components/installment/NewInstallment';
 import InstallmentPage from './pages/InstallmentPage';
 import Detail from './components/plots/Detail';
 import InstallmentDetail from './components/plots/InstallmentDetail';
+import InstallmentDetails from './pages/InstallmentDetails';
 
 // ----------------------------------------------------------------------
 
@@ -32,8 +33,10 @@ export default function Router() {
         { path: 'plot/installment_detail', element: <InstallmentDetail /> },
         { path: 'installment', element: <InstallmentPage /> },
         { path: 'installment/createInstallment', element: <NewInstallment /> },
+        { path: 'installment_details', element: <InstallmentDetails /> },
       ],
     },
+
     {
       path: 'login',
       element: <LoginPage />,

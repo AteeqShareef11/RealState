@@ -13,7 +13,7 @@ import { createInstallment } from '../../Redux/slice/installment';
 const initialValues = {
   amount: '',
   recieptNo: '',
-  recieptPic: null,
+  installmentReceipt: null,
   date: '',
 };
 
@@ -25,12 +25,12 @@ const NewInstallment = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (e.target.type === 'file') {
-      setValues({
-        ...values,
-        [e.target.name]: e.target.files[0],
-      });
-    }
+    // if (e.target.type === 'file') {
+    //   setValues({
+    //     ...values,
+    //     [e.target.name]: e.target.files[0],
+    //   });
+    // }
     setValues({
       ...values,
       [name]: value,
@@ -41,6 +41,13 @@ const NewInstallment = () => {
     setValues({
       ...values,
       date: moment(date).format('DD/MM/YYYY'),
+    });
+  };
+
+  const handlefilechange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.files[0],
     });
   };
 
@@ -105,7 +112,7 @@ const NewInstallment = () => {
               <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
                 <Stack spacing={2}>
                   <Typography>Reciept Pic</Typography>
-                  <input name="recieptPic" type="file" onChange={handleChange} />
+                  <input name="installmentReceipt" type="file" onChange={handlefilechange} />
                 </Stack>
               </Box>
             </Grid>

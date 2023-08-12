@@ -35,7 +35,7 @@ import Scrollbar from '../components/scrollbar';
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // mock
 import installment from '../_mock/user';
-import { getInstallmentbyMonth } from '../Redux/slice/installment';
+import { getInstallmentbyMonth, getInstallmentDetail } from '../Redux/slice/installment';
 
 // ----------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis?.map((el) => el[0]);
 }
 
-export default function UserPage() {
+export default function InstallmentDetails() {
   const [open, setOpen] = useState(null);
 
   const [page, setPage] = useState(0);
@@ -124,7 +124,7 @@ export default function UserPage() {
 
   const getInstallmentbyMonths = async () => {
     try {
-      const res = await dispatch(getInstallmentbyMonth());
+      const res = await dispatch(getInstallmentDetail());
     } catch (error) {
       toast.error(error.message);
     }

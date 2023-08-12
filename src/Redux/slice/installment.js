@@ -98,8 +98,9 @@ export const installmentSlice = createSlice({
     builder.addCase(getInstallmentDetail.pending, (state) => {
       state.loading = 'pending';
     });
-    builder.addCase(getInstallmentDetail.fulfilled, (state) => {
+    builder.addCase(getInstallmentDetail.fulfilled, (state, action) => {
       state.loading = 'idle';
+      state.data = action.payload;
     });
     builder.addCase(getInstallmentDetail.rejected, (state, action) => {
       state.loading = 'rejected';
